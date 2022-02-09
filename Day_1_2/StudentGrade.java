@@ -10,7 +10,7 @@ public class StudentGrade {
 
         int avg = (math + phy + chem) / 3;
 
-        if (avg >= 80) {
+        if (avg >= 90) {
             System.out.print("A");
         } else if (avg >= 60 && avg < 80) {
             System.out.print("B");
