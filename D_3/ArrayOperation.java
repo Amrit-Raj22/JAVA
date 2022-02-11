@@ -5,7 +5,9 @@ public class ArrayOperation {
     public static void main(String[] args) {
         int[] values = new int[10];
         Scanner scanner = new Scanner(System.in);
-
+        for (int i = 0; i < values.length; i++) {
+            values[i] = 0;
+        }
         System.out.println("Enter 10 Values:");
         for (int i = 0; i < 10; i++) {
             values[i] = scanner.nextInt();
