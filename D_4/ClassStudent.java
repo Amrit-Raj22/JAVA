@@ -47,10 +47,10 @@ class Student {
 
 public class ClassStudent {
     public static void main(String[] args) {
-        Student student1 = new Student();
-        Student student2 = new Student(2, "Student2");
-        Student student3 = new Student(3);
-        Student student4 = new Student("Student4");
+        StudentClass student1 = new StudentClass();
+        StudentClass student2 = new StudentClass(2, "Student2");
+        StudentClass student3 = new StudentClass(3);
+        StudentClass student4 = new StudentClass("Student4");
 
         student1.display();
         student1.setName("Student1");
