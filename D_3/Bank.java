@@ -22,10 +22,10 @@ class Account {
 
 public class Bank {
     public static void main(String[] args) {
-        Account person1 = new Account();
+        Accounts person1 = new Accounts();
         person1.balance = 1000;
         person1.accountHoldername = "Client1";
-        Account person2 = new Account();
+        Accounts person2 = new Accounts();
         person2.balance = 888888;
         person2.accountHoldername = "Client2";
 

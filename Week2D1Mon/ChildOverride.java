@@ -11,8 +11,8 @@ class Parent {
         this.firstname = firstname;
     }
 
-    public String getFirstname() {
-        return firstname;
+    public String getFirstname() { ///////////// <<<-----////////////////<<---/////////
+        return this.firstname;
     }
 
     public void setFirstname(String firstname) {
@@ -44,14 +44,15 @@ class Child extends Parent {
         super();
     }
 
-    Child(String firstname) {
+    Child(String firstname, String lastname) {
         this.firstname = firstname;
+        this.lastname = lastname;
     }
 
     @Override
     public String toString() {
 
-        return (super.getFirstname()); ///// why child first name?????????????
+        return (super.getLastname()); ///// why child first name?????????????
     }
 }
 
@@ -59,7 +60,7 @@ public class ChildOverride {
     public static void main(String[] args) {
         Parent parent = new Parent("ParentFirstName");
         System.out.println(parent.toString());
-        Child child = new Child("ChildFirstName");
+        Child child = new Child("ChildFirstName", "raaj");
         System.out.println(child.toString());
 
     }
