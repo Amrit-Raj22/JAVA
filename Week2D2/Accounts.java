@@ -1,6 +1,8 @@
+import java.util.Scanner;
+
 class BankAccount {
     protected int accountNo;
-    protected String name;
+    protected String name = "hi";
     protected double accountBalance;
 
     BankAccount() {
@@ -53,6 +55,12 @@ class BankAccount {
         //////////////
     }
 
+    public void copy(BankAccount account) {
+        BankAccount newAccount = new BankAccount(account.getAccountNo(), account.getName(),
+                account.getAccountBalance());
+        System.out.println(name);
+    }
+
 }
 
 class SavingAccount extends BankAccount {
@@ -63,9 +71,9 @@ class SavingAccount extends BankAccount {
 
     }
 
-    SavingAccount(int accountNo, String name, double accountBalance, double rateOfInterest) {
+    SavingAccount(int accountNo, String name, double accountBalance) {
         super(accountNo, name, accountBalance);
-        this.rateOfInterest = rateOfInterest;
+        // this.rateOfInterest = rateOfInterest;
 
     }
 
@@ -87,6 +95,7 @@ class SavingAccount extends BankAccount {
         System.out.println("rate of interest:" + rateOfInterest);
         return "Saving";
     }
+
 }
 
 class CurrentAccount extends BankAccount {
@@ -96,9 +105,9 @@ class CurrentAccount extends BankAccount {
         super();
     }
 
-    CurrentAccount(int accountNo, String name, double accountBalance, double avgDailyTransactions) {
+    CurrentAccount(int accountNo, String name, double accountBalance) {
         super(accountNo, name, accountBalance);
-        this.avgDailyTransactions = avgDailyTransactions;
+        // this.avgDailyTransactions = avgDailyTransactions;
 
     }
 
@@ -125,9 +134,11 @@ class CurrentAccount extends BankAccount {
 
 public class Accounts {
     public static void main(String[] args) {
+        BankAccount account = new BankAccount();
         SavingAccount saveAccount = new SavingAccount();
         CurrentAccount curr1 = new CurrentAccount();
-        CurrentAccount curr2 = new CurrentAccount(100, "Raj", 15.00, 1.0);
+        CurrentAccount curr2 = new CurrentAccount(100, "Raj", 15.00);
+        BankAccount exception = new copy(account);
 
         // System.out.println(saveAccount.getYearlyInterest());
         // System.out.println(curr1.getYearlyTransactions());
@@ -156,8 +167,21 @@ public class Accounts {
             }
 
         };
-        salaryAccount.getYearlyInHandSalary();
-        salaryAccount.getYearlyTax();
+        // salaryAccount.getYearlyInHandSalary();
+        // salaryAccount.getYearlyTax();
+
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Enter N:");
+        int n = scanner.nextInt();
+        BankAccount[] bankArr = new BankAccount[n * 2];
+        for (int i = 0; i < 2 * n; i += 2) {
+            bankArr[i] = new SavingAccount(i, "new bank" + (i), 1000);
+            bankArr[i + 1] = new CurrentAccount(i + 1, "new current" + (i), 1000);
+            // bankArr[i+2]= new salaryAccount(i+2,"Salary"+(i+2),1000);
+        }
+        scanner.close();
+        System.out.println(bankArr[3].getName());
+
     }
 
 }
